@@ -1,0 +1,63 @@
+.lora-font {
+  font-family: "Lora", serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.diolog-position {
+  position: absolute;
+  top: 190px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.logo {
+  border-radius: 13px;
+  width: 40px;
+}
+
+.light-blue-backdrop {
+  background-color: #450000;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu li:after,
+.menu li:before {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0px solid transparent;
+  width: 0%;
+  height: 0%;
+  transition: all 0.3s ease;
+}
+
+.menu li:after {
+  width: 0%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+}
+
+.menu li:before {
+  width: 0%;
+  height: 0%;
+  right: 0;
+  bottom: 0;
+  border-bottom: 2px solid transparent;
+  border-right: 2px solid transparent;
+}
+
+.menu li:hover::before,
+.menu li:hover::after {
+  width: 10px;
+  height: 10px;
+  border-color: #000000;
+}

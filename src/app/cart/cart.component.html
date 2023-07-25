@@ -1,0 +1,75 @@
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="table">
+  <ng-container matColumnDef="product_img">
+    <th mat-header-cell *matHeaderCellDef>Image</th>
+    <td mat-cell *matCellDef="let element">
+      <img
+        class="img-thumbnail .img-responsive"
+        src="{{ element.product_img }}"
+        style="height: 80px; width: 80px"
+      />
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="product_name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.product_name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="product_price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.product_price | currency : "EUR" : "€" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="product_quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+    <td mat-cell *matCellDef="let element">
+      <button class="btn btn-primary" (click)="increaseQuantity(element)">
+        +
+      </button>
+
+      <span class="mx-3 fw-bold text-primary"
+        >{{ this.fullQuantity }}\{{ element.product_quantity }}</span
+      >
+
+      <button class="btn btn-warning" (click)="reduceQuantity(element)">
+        -
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="totalPrice">
+    <th mat-header-cell *matHeaderCellDef>Total Price</th>
+    <td mat-cell *matCellDef="let element">
+      {{
+        element.product_price * element.product_quantity
+          | currency : "EUR" : "€"
+      }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="removeProduct">
+    <th mat-header-cell *matHeaderCellDef>Remove The Product</th>
+    <td mat-cell *matCellDef="let element">
+      <button class="btn btn-danger" (click)="removeCartProduct(element)">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+  Row shown when there is no matching data.
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">
+      No data matching the filter "{{ input.value }}"
+    </td>
+  </tr>
+</table>
