@@ -3,7 +3,7 @@
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input />
 </mat-form-field>
 
-<table mat-table [dataSource]="dataSource" class="table">
+<table mat-table [dataSource]="dataSource" class="table table-layout">
   <ng-container matColumnDef="product_img">
     <th mat-header-cell *matHeaderCellDef>Image</th>
     <td mat-cell *matCellDef="let element">
@@ -34,9 +34,9 @@
         +
       </button>
 
-      <span class="mx-3 fw-bold text-primary"
-        >{{ this.fullQuantity }}\{{ element.product_quantity }}</span
-      >
+      <span class="mx-3 fw-bold text-primary">{{
+        element.product_quantity
+      }}</span>
 
       <button class="btn btn-warning" (click)="reduceQuantity(element)">
         -
