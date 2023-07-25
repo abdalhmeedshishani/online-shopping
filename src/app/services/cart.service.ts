@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CartService {
   products: Product[] = [];
-  fullQuantity = 5;
+  fullQuantity = 50;
   cartCount: number = 0;
   public productList = new BehaviorSubject<Product[]>([]);
 
