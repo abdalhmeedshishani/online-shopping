@@ -5,15 +5,11 @@
       <mat-card-title>{{ product.product_name }}</mat-card-title>
       <mat-card-subtitle><span class="blink-text">Car</span></mat-card-subtitle>
     </mat-card-header>
-    <img
-      mat-card-image
-      class="img-fluid"
-      src="{{ product.product_img }}"
-      alt=""
-    />
+    <img class="img-fluid" src="{{ product.product_img }}" alt="" />
     <mat-card-content>
-      <p>
-        <span class="text-primary">Details:</span> {{ product.product_details }}
+      <p style="width: 412px">
+        <span class="text-primary">Details:</span>
+        {{ product.product_details }}
       </p>
     </mat-card-content>
     <mat-card-actions>
